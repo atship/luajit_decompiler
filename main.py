@@ -328,6 +328,14 @@ class Main:
             #if not file.endswith('.lua'):
              #   new_path = new_path[:-1]
             self.write_file(ast, new_path, full_path + ".property")
+            fin = open(new_path, "r")
+            content = fin.read()
+            fin.close()
+            content = content.replace("_env:final(", "final(self").replace("_env:init(", "init(self").replace("_env:update(", "update(self, ").replace(" update(self, )", " update(self)").replace("_env:on_message(", "on_message(self, ").replace("_env:on_input(", "on_input(self, ").replace("_env:on_reload(", "on_reload(self").replace(", nil, ,", ", nil, nil,")
+            fou = open(new_path, "w")
+            fou.write(content)
+            fou.close()
+            print(new_path)
             if self.options.enable_logging:
                 logger.info("Success")
             return 0

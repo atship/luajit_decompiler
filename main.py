@@ -331,7 +331,7 @@ class Main:
             fin = open(new_path, "r")
             content = fin.read()
             fin.close()
-            content = content.replace("_env:final(", "final(self").replace("_env:init(", "init(self").replace("_env:update(", "update(self, ").replace(" update(self, )", " update(self)").replace("_env:on_message(", "on_message(self, ").replace("_env:on_input(", "on_input(self, ").replace("_env:on_reload(", "on_reload(self").replace(", nil, ,", ", nil, nil,")
+            content = content.replace("_env:final(", "final(self").replace("_env:init(", "init(self").replace("_env:update(", "update(self, ").replace(" update(self, )", " update(self)").replace("_env:fixed_update(", "fixed_update(self, ").replace("_env:on_message(", "on_message(self, ").replace("_env:on_input(", "on_input(self, ").replace("_env:on_reload(", "on_reload(self").replace(", nil, ,", ", nil, nil,")
             fou = open(new_path, "w")
             fou.write(content)
             fou.close()
